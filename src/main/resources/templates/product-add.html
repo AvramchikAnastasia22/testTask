@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Update Category</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/shards.min.css">
+</head>
+<body>
+<div class="container my-5">
+  <h2 class="mb-5">products</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Добавление нового Товара</h1>
+      <form action="/product/add"  method="post">
+        <div class="row">
+          <div class="form-group col-md-6">
+
+            <input type="text"  name="name" class="form-control"  placeholder="наименование">
+            <input type="text"  name="description" class="form-control"  placeholder="описание">
+
+            <input type="number" min="0.00" max="10000.00" step="0.01" name="cost" class="form-control"  placeholder="стоимость">
+            <input type="text"  name="generalDescr" class="form-control"  placeholder="Примечание общее">
+            <input type="text"  name="specialDescr" class="form-control"  placeholder="Примечание специальное">
+            <div class="col-md-4">
+              <select id="categories" width="60%"  name="category" class="form-control">
+                <option th:value = "null">-SELECT-</option>
+                <option th:each = "category : ${categories}"
+                        th:value = "${category.id}"
+                        th:text = "${category.nameCategory}">
+                </option>
+              </select>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-5">
+            <input type="submit" class="btn btn-primary" value="Добавить">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<p class="my-5"><a href="/index" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i>back</a></p>
+</div>
+</body>
+</html>
